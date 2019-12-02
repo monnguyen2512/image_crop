@@ -243,31 +243,31 @@ class CropState extends State<Crop> with TickerProviderStateMixin, Drag {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       if (mounted) {
         setState(() {
-        _image = imageInfo.image;
-        _scale = imageInfo.scale;
-        _ratio = max(
-          _boundaries.width / _image.width,
-          _boundaries.height / _image.height,
-        );
+          _image = imageInfo.image;
+          _scale = imageInfo.scale;
+          _ratio = max(
+            _boundaries.width / _image.width,
+            _boundaries.height / _image.height,
+          );
 
-        final viewWidth = _boundaries.width / (_image.width * _scale * _ratio);
-        final viewHeight =
-            _boundaries.height / (_image.height * _scale * _ratio);
-        _area = _calculateDefaultArea(
-          viewWidth: viewWidth,
-          viewHeight: viewHeight,
-          imageWidth: _image.width,
-          imageHeight: _image.height,
-        );
-        _view = Rect.fromLTWH(
-          (viewWidth - 1.0) / 2,
-          (viewHeight - 1.0) / 2,
-          viewWidth,
-          viewHeight,
-        );
+          final viewWidth =
+              _boundaries.width / (_image.width * _scale * _ratio);
+          final viewHeight =
+              _boundaries.height / (_image.height * _scale * _ratio);
+          _area = _calculateDefaultArea(
+            viewWidth: viewWidth,
+            viewHeight: viewHeight,
+            imageWidth: _image.width,
+            imageHeight: _image.height,
+          );
+          _view = Rect.fromLTWH(
+            (viewWidth - 1.0) / 2,
+            (viewHeight - 1.0) / 2,
+            viewWidth,
+            viewHeight,
+          );
+        });
       }
-      }
-      );
     });
     WidgetsBinding.instance.ensureVisualUpdate();
   }
