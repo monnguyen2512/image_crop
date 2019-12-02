@@ -240,8 +240,8 @@ class CropState extends State<Crop> with TickerProviderStateMixin, Drag {
   }
 
   void _updateImage(ImageInfo imageInfo, bool synchronousCall) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (mounted) {
+    if (mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         setState(() {
           _image = imageInfo.image;
           _scale = imageInfo.scale;
@@ -267,8 +267,8 @@ class CropState extends State<Crop> with TickerProviderStateMixin, Drag {
             viewHeight,
           );
         });
-      }
-    });
+      });
+    }
     WidgetsBinding.instance.ensureVisualUpdate();
   }
 
