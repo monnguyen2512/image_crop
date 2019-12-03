@@ -45,6 +45,19 @@ class Crop extends StatefulWidget {
         assert(alwaysShowGrid != null),
         super(key: key);
 
+  Crop.memory(
+    Uint8List uint8List, {
+    Key key,
+    double scale = 1.0,
+    this.aspectRatio,
+    this.maximumScale: 2.0,
+    this.alwaysShowGrid: false,
+    this.onImageError,
+  })  : image = MemoryImage(uint8List, scale: scale),
+        assert(maximumScale != null),
+        assert(alwaysShowGrid != null),
+        super(key: key);
+
   Crop.asset(
     String assetName, {
     Key key,
