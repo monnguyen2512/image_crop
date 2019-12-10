@@ -605,7 +605,7 @@ class _CropPainter extends CustomPainter {
 
     if (!boundaries.isEmpty) {
       _drawGrid(canvas, boundaries);
-      _drawHandles(canvas, boundaries);
+      //_drawHandles(canvas, boundaries);
     }
 
     canvas.restore();
